@@ -1,0 +1,38 @@
+
+.content.data-v-409f8a52{
+	position: relative;
+	height: 240rpx;
+	width: 680rpx;
+	background-color:#f2f2f2;
+	margin: 30rpx 0;
+}
+image.data-v-409f8a52{
+	display: block;
+	width: 240rpx;
+	height: 240rpx;
+	position: absolute;
+	right: 10rpx;
+	top: 0;
+}
+.musicDetail.data-v-409f8a52{
+	display: flex;
+	margin: 8rpx 0;
+}
+.musicDetail text.data-v-409f8a52{
+	font-size: 26rpx;
+	max-width: 196rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.Peaktitle.data-v-409f8a52{
+	padding-top:20rpx;
+	font-size: 36rpx;
+	margin-bottom: 20rpx;
+}
+.author.data-v-409f8a52{
+	
+	margin-left: 30rpx;
+	color: #797979;
+}
+

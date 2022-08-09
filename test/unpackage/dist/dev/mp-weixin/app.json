@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/music/music",
+    "pages/login/login",
+    "pages/search/search",
+    "pages/moreSongs/moreSongs",
+    "pages/morePlaylists/morePlaylists",
+    "pages/playListDetail/playListDetail",
+    "pages/musicDetail/musicDetail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "听我想听",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff"
+  },
+  "permission": {},
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

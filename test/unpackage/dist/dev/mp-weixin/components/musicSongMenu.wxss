@@ -1,0 +1,41 @@
+
+.scroll.data-v-611bf3ae{
+	height: 350rpx;
+	display: flex;
+}
+.scrollItem.data-v-611bf3ae{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin-right: 20rpx;
+	margin-top: 25rpx;
+}
+.scrollItem image.data-v-611bf3ae{
+	width: 244rpx;
+	height: 244rpx;
+	border-radius: 20rpx;
+}
+.SongMenuName.data-v-611bf3ae{
+	width: 244rpx;
+	height: 80rpx;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;/* 设置对齐方式 */
+	-webkit-line-clamp:2 ;
+	overflow: hidden;
+	font-size: 28rpx;
+	text-overflow: ellipsis;
+}
+.playCount.data-v-611bf3ae{
+	position: absolute;
+	font-size: 19rpx;
+	color: white;
+	width: 130rpx;
+	height: 30rpx;
+	background-color:#424242;
+	line-height: 30rpx;
+	text-align: center;
+	border-radius: 10rpx;
+	right: 0;
+	top:214rpx
+}
+

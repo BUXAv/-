@@ -1,0 +1,42 @@
+
+.content{
+	padding: 10rpx 20rpx;
+	display: flex;
+	flex-wrap: wrap;
+}
+.playListItem{
+	position: relative;
+	width:50%;
+	height: 390rpx;
+	display: flex;
+	flex-direction: column;
+	font-size: 27rpx;
+}
+.playListItem image{
+	width: 340rpx;
+	height: 340rpx;
+	border-radius: 20rpx;
+}
+.playListItem text{
+	max-width: 330rpx;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.playListItem .playCount{
+	position: absolute;
+	left: 190rpx;
+	top:278rpx;
+	border-radius: 20rpx;
+	color: white;
+	width: 150rpx;
+	height: 40rpx;
+	background-color: rgba(56, 47, 41, 0.6);
+	text-align: center;
+	line-height: 40rpx;
+	font-size: 24rpx;
+}
+.playListItem .itemName{
+	margin: 20rpx 0;
+}
+

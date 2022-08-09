@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "听我想听",
+  "usingComponents": {
+    "music-song-menu": "/components/musicSongMenu",
+    "hot-song-chart": "/components/HotSongChart"
+  }
+}

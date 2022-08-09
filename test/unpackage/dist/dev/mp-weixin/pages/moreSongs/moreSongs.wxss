@@ -1,0 +1,39 @@
+
+.title {
+	font-size: 40rpx;
+	margin: 20rpx 30rpx;
+	font-weight: 1000;
+}
+.musicItem {
+	position: relative;
+	margin: 40rpx 30rpx;
+	display: flex;
+	height: 100rpx;
+}
+.index {
+	height: 80rpx;
+	line-height: 80rpx;
+	margin-right: 40rpx;
+}
+.musicDetail {
+	display: flex;
+	flex-direction: column;
+	height: 100rpx;
+}
+.musicDetail text {
+	height: 38rpx;
+	line-height: 35rpx;
+	margin-bottom: 10rpx;
+	max-width: 450rpx;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+image {
+	width: 90rpx;
+	height: 90rpx;
+	position: absolute;
+	right: 20rpx;
+	border-radius: 10rpx;
+}
+

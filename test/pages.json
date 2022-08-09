@@ -1,0 +1,55 @@
+{
+	"pages": [
+		
+		{
+		"path": "pages/music/music",
+		"style": {
+			"navigationBarTitleText": "听我想听"
+		}
+	},
+	{
+		"path": "pages/login/login",
+		"style": {
+		}
+	},
+	{
+		"path": "pages/search/search",
+		"style": {
+			"navigationBarTitleText": "搜索歌曲"
+		}
+	},
+	{
+		"path": "pages/moreSongs/moreSongs",
+		"style": {
+			"navigationBarTitleText": "更多音乐"
+		}
+	},
+	{
+		"path": "pages/morePlaylists/morePlaylists",
+		"style": {
+			"navigationBarTitleText": "更多歌单"
+		}
+	},
+	{
+		"path": "pages/playListDetail/playListDetail",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/musicDetail/musicDetail",
+		"style": {
+		}
+	}
+	
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "听我想听",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#ffffff",
+		"app-plus": {
+			"background": "#ffffff"
+		}
+	}
+}

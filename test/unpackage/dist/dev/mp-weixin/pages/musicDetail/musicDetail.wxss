@@ -1,0 +1,168 @@
+
+.background {
+	height: 1300rpx;
+	-webkit-filter: blur(25px) brightness(40%) grayscale(50%);
+	        filter: blur(25px) brightness(40%) grayscale(50%);
+	width: 100%;
+	-webkit-transform: scale(1.3);
+	        transform: scale(1.3);
+	background: no-repeat;
+	background-size: 100% 100%;
+}
+.content {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.singer {
+	margin: 20rpx 0;
+	color: white;
+	text-align: center;
+}
+.image {
+	position: relative;
+	width: 100%;
+	height: 500rpx;
+}
+.image image {
+	position: absolute;
+	width: 460rpx;
+	height: 460rpx;
+	left: 0;
+	right: 0;
+	border-radius: 20rpx;
+	margin: 20rpx auto;
+}
+.image .iconfont {
+	position: absolute;
+	width: 80rpx;
+	height: 80rpx;
+	font-size: 80rpx;
+	color: white;
+	text-align: center;
+	line-height: 80rpx;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	margin: auto auto;
+}
+.lyric {
+	margin-top: 30rpx;
+	text-align: center;
+	height: 200rpx;
+	color: #999796;
+	font-size: 36rpx;
+}
+.lyric .item {
+	margin-bottom: 20rpx;
+}
+.ProgressBar {
+	margin-top: 40rpx;
+	position: relative;
+	justify-content: center;
+	bottom: 0;
+	display: flex;
+}
+.ProgressBar text {
+	height: 80rpx;
+	color: white;
+	font-size: 30rpx;
+	text-align: center;
+	line-height: 80rpx;
+}
+.ProgressBar .Bar {
+	position: relative;
+	width: 400rpx;
+	height: 80rpx;
+}
+.totalBar {
+	width: 360rpx;
+	height: 4rpx;
+	background-color: white;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+.NowBar {
+	height: 4rpx;
+	background-color: #48cea3;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	z-index: 1;
+}
+.audio-circle {
+	width: 12rpx;
+	height: 12rpx;
+	border-radius: 50%;
+	background-color: #48cea3;
+	position: absolute;
+	right: -6rpx;
+	top: -4rpx
+}
+.comments {
+	margin-top: 60rpx;
+	position: absolute;
+	left: 40rpx;
+	color: white;
+}
+.comments .Wonderful-reviews{
+	font-size: 38rpx;
+	font-weight: 1000;
+	color: white;
+}
+.user{
+	margin: 20rpx 0;
+	display: flex;
+}
+.user image{
+	width: 60rpx;
+	height: 60rpx;
+	margin-right: 10rpx;
+	border-radius: 50%;
+}
+.user .userInfo{
+	display: flex;
+	height: 60rpx;
+	flex-direction: column;
+}
+.userInfo .userName{
+	font-size:30rpx ;
+	height: 30rpx;
+	line-height: 30rpx;
+}
+.userInfo .time{
+	font-size: 20rpx;
+	line-height: 30rpx;
+	height: 30rpx;
+}
+.comment{
+	margin-left: 30rpx;
+	font-size: 28rpx;
+	padding: 0 30rpx;
+}
+.icon-shangyishoushangyige{
+	position: absolute;
+	left: 20rpx;
+	font-size: 80rpx;
+	color: white;
+	top: 300rpx;
+	z-index: 10;
+}
+.icon-xiayigexiayishou{
+	position: absolute;
+	right: 20rpx;
+	font-size: 80rpx;
+	color: white;
+	top: 300rpx;
+	z-index: 10;
+}
+
