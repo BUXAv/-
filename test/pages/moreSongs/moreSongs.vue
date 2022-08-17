@@ -49,6 +49,7 @@
 				}
 				this.index=index
 				let musicId = musicData[index].id
+				this.xid=this.musicData[index].id
 				Pubsub.publish("MusicId", musicId)
 			})
 		},

@@ -10,7 +10,7 @@
 						<image class="authorPic" :src="data.creator.avatarUrl"></image>
 						<text class="author">{{data.creator.nickname}}</text>
 					</view>
-					<view class="showDetail" @click="showDetail()">
+					<view class="showDetail" @click="showDetail">
 						<text class="description">简介：{{data.description}}</text>
 						<text class="more">></text>
 					</view>
@@ -75,6 +75,7 @@
 				}
 				this.index=index
 				let musicId = musicData[index].id
+				this.xid=this.musicData[index].name
 				Pubsub.publish("MusicId", musicId)
 			})
 			console.log(2)

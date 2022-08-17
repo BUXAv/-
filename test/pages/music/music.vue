@@ -1,14 +1,14 @@
 <template>
 	<block>
 		<view class="header">
-			<input @click="ToSearch()" class="search-input" type="text" placeholder="搜索">
+			<input @click="ToSearch" class="search-input" type="text" placeholder="搜索">
 			<text class='iconfont icon-sousuo'> </text>
 		</view>
 		
 		<view class="songRecommon">
 			<view class="Recommontitle">
 				<text class="title">歌曲推荐</text>
-				<text class="more" @click="ToMore()">更多></text>
+				<text class="more" @click="ToMore">更多></text>
 			</view>
 			<view class="RecommonItem" v-for="item in RecommonList" :id="item.id" :key="item.id" @click="ToMusicDeatail($event)" >
 				<image :src="item.album.picUrl"></image>

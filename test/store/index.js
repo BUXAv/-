@@ -4,7 +4,20 @@ Vue.use(Vuex)
 
 const actions = {}
 
-const mutations = {}
+const mutations = {
+	changeIsPlay(state){
+		state.isPlay=!state.isPlay
+	},
+	HandleIsPlay(state,isPlay){
+		state.isPlay=isPlay
+	},
+	getId(state,id){
+		state.id=id
+	},
+	getUrl(state,url){
+		state.url=url
+	}
+}
 
 const getters={}
 

@@ -2,9 +2,9 @@
 	<view>
 		<view class="searchInput">
 			<text class="iconfont icon-sousuo"></text>
-			<input type="text" placeholder-class="placeholder" @input="getValue(value)" @click="clickEvent()" v-model="value" placeholder="搜索 音乐/视频/歌手/歌单/电台">
-			<text class="X" v-if="isClick" @click="clearSearch()">×</text>
-			<text class="cancel" v-if="isClick" @click="clearSearch()" >取消</text>
+			<input type="text" placeholder-class="placeholder" @input="getValue(value)" @click="clickEvent" v-model="value" placeholder="搜索 音乐/视频/歌手/歌单/电台">
+			<text class="X" v-if="isClick" @click="clearSearch">×</text>
+			<text class="cancel" v-if="isClick" @click="clearSearch" >取消</text>
 		</view>
 		<view class="SearchContext" v-if="value.length">
 			<view class="keywords">搜索“{{value}}”</view>

@@ -1,5 +1,5 @@
 <template>
-	<view class="content" @click="ToMore()">
+	<view class="content" @click="ToMore">
 		<view class="Peaktitle">{{musicList.name}}</view>
 		<view class="musicDetail" v-for="(item,value) in musicList.list" :key="item.al.id" >
 			<text class="musicName">{{value+1}}. {{item.al.name}}</text>

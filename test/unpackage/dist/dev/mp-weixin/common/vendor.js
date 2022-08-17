@@ -1400,7 +1400,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8479,7 +8479,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8500,14 +8500,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8593,7 +8593,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"test","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9003,9 +9003,9 @@ internalMixin(Vue);
 
 /***/ }),
 /* 5 */
-/*!***************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/pages.json ***!
-  \***************************************************************/
+/*!**************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/pages.json ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9146,9 +9146,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 12 */
-/*!*******************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/store/index.js ***!
-  \*******************************************************************/
+/*!******************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/store/index.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9159,7 +9159,20 @@ _vue.default.use(_vuex.default);
 
 var actions = {};
 
-var mutations = {};
+var mutations = {
+  changeIsPlay: function changeIsPlay(state) {
+    state.isPlay = !state.isPlay;
+  },
+  HandleIsPlay: function HandleIsPlay(state, isPlay) {
+    state.isPlay = isPlay;
+  },
+  getId: function getId(state, id) {
+    state.id = id;
+  },
+  getUrl: function getUrl(state, url) {
+    state.url = url;
+  } };
+
 
 var getters = {};
 
@@ -11230,9 +11243,9 @@ if (hadRuntime) {
 
 /***/ }),
 /* 23 */
-/*!*********************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/utils/request.js ***!
-  \*********************************************************************/
+/*!********************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/utils/request.js ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11283,9 +11296,9 @@ if (hadRuntime) {
 /* 46 */,
 /* 47 */,
 /* 48 */
-/*!*****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/pubsub-js/src/pubsub.js ***!
-  \*****************************************************************************************/
+/*!****************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/pubsub-js/src/pubsub.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11645,7 +11658,7 @@ if (hadRuntime) {
     return result;
   };
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../Desktop/HBuilderX/plugins/uniapp-cli/node_modules/webpack/buildin/module.js */ 49)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../HBuilderX/plugins/uniapp-cli/node_modules/webpack/buildin/module.js */ 49)(module)))
 
 /***/ }),
 /* 49 */
@@ -11705,9 +11718,9 @@ module.exports = function(module) {
 /* 72 */,
 /* 73 */,
 /* 74 */
-/*!**********************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/moment.js ***!
-  \**********************************************************************************/
+/*!*********************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/moment.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17395,13 +17408,13 @@ module.exports = function(module) {
   return hooks;
 
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../Desktop/HBuilderX/plugins/uniapp-cli/node_modules/webpack/buildin/module.js */ 49)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../HBuilderX/plugins/uniapp-cli/node_modules/webpack/buildin/module.js */ 49)(module)))
 
 /***/ }),
 /* 75 */
-/*!*********************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale sync ^\.\/.*$ ***!
-  \*********************************************************************************************/
+/*!********************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale sync ^\.\/.*$ ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17700,9 +17713,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 76 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/af.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/af.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17789,9 +17802,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 77 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ar.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ar.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17996,9 +18009,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 78 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ar-dz.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ar-dz.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18170,9 +18183,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 79 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ar-kw.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ar-kw.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18243,9 +18256,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 80 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ar-ly.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ar-ly.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18432,9 +18445,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 81 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ar-ma.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ar-ma.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18506,9 +18519,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 82 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ar-sa.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ar-sa.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18629,9 +18642,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 83 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ar-tn.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ar-tn.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18702,9 +18715,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 84 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/az.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/az.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18822,9 +18835,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 85 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/be.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/be.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18982,9 +18995,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 86 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/bg.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/bg.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19087,9 +19100,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 87 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/bm.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/bm.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19156,9 +19169,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 88 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/bn.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/bn.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19293,9 +19306,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 89 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/bn-bd.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/bn-bd.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19440,9 +19453,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 90 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/bo.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/bo.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19582,9 +19595,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 91 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/br.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/br.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19768,9 +19781,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 92 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/bs.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/bs.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19936,9 +19949,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 93 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ca.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ca.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20054,9 +20067,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 94 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/cs.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/cs.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20252,9 +20265,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 95 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/cv.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/cv.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20333,9 +20346,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 96 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/cy.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/cy.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20449,9 +20462,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 97 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/da.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/da.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20520,9 +20533,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 98 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/de.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/de.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20616,9 +20629,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 99 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/de-at.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/de-at.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20713,9 +20726,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 100 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/de-ch.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/de-ch.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20807,9 +20820,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 101 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/dv.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/dv.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20915,9 +20928,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 102 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/el.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/el.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21039,9 +21052,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 103 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/en-au.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/en-au.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21125,9 +21138,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 104 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/en-ca.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/en-ca.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21207,9 +21220,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 105 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/en-gb.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/en-gb.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21293,9 +21306,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 106 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/en-ie.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/en-ie.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21379,9 +21392,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 107 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/en-il.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/en-il.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21461,9 +21474,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 108 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/en-in.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/en-in.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21547,9 +21560,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 109 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/en-nz.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/en-nz.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21633,9 +21646,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 110 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/en-sg.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/en-sg.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21719,9 +21732,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 111 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/eo.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/eo.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21805,9 +21818,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 112 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/es.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/es.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21933,9 +21946,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 113 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/es-do.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/es-do.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22059,9 +22072,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 114 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/es-mx.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/es-mx.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22187,9 +22200,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 115 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/es-us.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/es-us.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22315,9 +22328,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 116 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/et.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/et.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22411,9 +22424,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 117 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/eu.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/eu.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22494,9 +22507,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 118 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/fa.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/fa.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22625,9 +22638,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 119 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/fi.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/fi.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22767,9 +22780,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 120 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/fil.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/fil.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22843,9 +22856,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 121 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/fo.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/fo.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22918,9 +22931,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 122 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/fr.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/fr.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23044,9 +23057,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 123 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/fr-ca.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/fr-ca.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23132,9 +23145,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 124 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/fr-ch.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/fr-ch.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23224,9 +23237,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 125 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/fy.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/fy.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23317,9 +23330,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 126 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ga.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ga.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23430,9 +23443,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 127 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/gd.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/gd.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23543,9 +23556,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 128 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/gl.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/gl.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23636,9 +23649,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 129 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/gom-deva.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/gom-deva.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23780,9 +23793,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 130 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/gom-latn.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/gom-latn.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23922,9 +23935,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 131 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/gu.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/gu.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24062,9 +24075,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 132 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/he.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/he.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24174,9 +24187,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 133 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/hi.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/hi.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24360,9 +24373,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 134 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/hr.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/hr.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24534,9 +24547,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 135 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/hu.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/hu.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24670,9 +24683,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 136 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/hy-am.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/hy-am.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24782,9 +24795,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 137 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/id.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/id.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24876,9 +24889,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 138 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/is.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/is.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25034,9 +25047,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 139 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/it.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/it.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25158,9 +25171,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 140 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/it-ch.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/it-ch.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25240,9 +25253,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 141 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ja.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ja.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25406,9 +25419,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 142 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/jv.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/jv.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25500,9 +25513,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 143 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ka.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ka.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25610,9 +25623,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 144 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/kk.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/kk.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25710,9 +25723,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 145 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/km.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/km.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25831,9 +25844,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 146 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/kn.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/kn.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25973,9 +25986,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 147 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ko.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ko.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26066,9 +26079,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 148 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ku.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ku.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26202,9 +26215,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 149 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ky.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ky.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26304,9 +26317,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 150 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/lb.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/lb.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26459,9 +26472,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 151 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/lo.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/lo.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26543,9 +26556,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 152 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/lt.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/lt.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26686,9 +26699,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 153 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/lv.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/lv.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26798,9 +26811,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 154 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/me.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/me.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26933,9 +26946,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 155 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/mi.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/mi.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27011,9 +27024,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 156 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/mk.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/mk.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27115,9 +27128,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 157 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ml.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ml.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27215,9 +27228,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 158 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/mn.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/mn.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27333,9 +27346,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 159 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/mr.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/mr.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27554,9 +27567,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 160 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ms.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ms.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27647,9 +27660,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 161 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ms-my.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ms-my.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27741,9 +27754,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 162 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/mt.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/mt.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27815,9 +27828,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 163 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/my.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/my.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27924,9 +27937,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 164 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/nb.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/nb.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28002,9 +28015,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 165 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ne.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ne.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28141,9 +28154,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 166 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/nl.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/nl.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28263,9 +28276,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 167 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/nl-be.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/nl-be.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28383,9 +28396,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 168 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/nn.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/nn.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28460,9 +28473,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 169 */
-/*!*****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/oc-lnc.js ***!
-  \*****************************************************************************************/
+/*!****************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/oc-lnc.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28563,9 +28576,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 170 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/pa-in.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/pa-in.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28703,9 +28716,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 171 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/pl.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/pl.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28861,9 +28874,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 172 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/pt.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/pt.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28942,9 +28955,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 173 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/pt-br.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/pt-br.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29018,9 +29031,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 174 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ro.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ro.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29112,9 +29125,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 175 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ru.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ru.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29343,9 +29356,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 176 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/sd.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/sd.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29442,9 +29455,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 177 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/se.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/se.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29517,9 +29530,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 178 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/si.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/si.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29604,9 +29617,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 179 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/sk.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/sk.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29767,9 +29780,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 180 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/sl.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/sl.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29956,9 +29969,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 181 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/sq.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/sq.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30039,9 +30052,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 182 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/sr.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/sr.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30186,9 +30199,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 183 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/sr-cyrl.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/sr-cyrl.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30331,9 +30344,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 184 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ss.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ss.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30433,9 +30446,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 185 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/sv.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/sv.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30519,9 +30532,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 186 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/sw.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/sw.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30592,9 +30605,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 187 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ta.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ta.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30741,9 +30754,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 188 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/te.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/te.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30847,9 +30860,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 189 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/tet.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/tet.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30933,9 +30946,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 190 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/tg.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/tg.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31068,9 +31081,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 191 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/th.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/th.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31151,9 +31164,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 192 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/tk.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/tk.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31260,9 +31273,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 193 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/tl-ph.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/tl-ph.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31335,9 +31348,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 194 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/tlh.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/tlh.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31477,9 +31490,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 195 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/tr.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/tr.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31601,9 +31614,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 196 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/tzl.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/tzl.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31708,9 +31721,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 197 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/tzm.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/tzm.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31780,9 +31793,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 198 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/tzm-latn.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/tzm-latn.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31852,9 +31865,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 199 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ug-cn.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ug-cn.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31981,9 +31994,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 200 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/uk.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/uk.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32166,9 +32179,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 201 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/ur.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/ur.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32266,9 +32279,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 202 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/uz.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/uz.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32335,9 +32348,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 203 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/uz-latn.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/uz-latn.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32407,9 +32420,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 204 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/vi.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/vi.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32505,9 +32518,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 205 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/x-pseudo.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/x-pseudo.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32596,9 +32609,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 206 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/yo.js ***!
-  \*************************************************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/yo.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32667,9 +32680,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 207 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/zh-cn.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/zh-cn.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32805,9 +32818,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 208 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/zh-hk.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/zh-hk.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32924,9 +32937,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 209 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/zh-mo.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/zh-mo.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33042,9 +33055,9 @@ webpackContext.id = 75;
 
 /***/ }),
 /* 210 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/WOW/Documents/HBuilderProjects/test/node_modules/moment/locale/zh-tw.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/WOW/Desktop/music/test/node_modules/moment/locale/zh-tw.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

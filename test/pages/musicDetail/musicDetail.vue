@@ -7,8 +7,8 @@
 			<text v-if="name" class="iconfont icon-xiayigexiayishou" id="next" @click="changeMusic($event)" ></text>
 			<view class="image">
 				<image :src="musicData.al.picUrl"></image>
-				<text  v-if="!isPlay" @click="pause()" class="iconfont icon-bofang"></text>
-				<text  v-if="isPlay" @click="pause()" class="iconfont icon-zanting"></text>
+				<text  v-if="!isPlay" @click="pause" class="iconfont icon-bofang"></text>
+				<text  v-if="isPlay" @click="pause" class="iconfont icon-zanting"></text>
 			</view>
 			<scroll-view scroll-y="true" :scroll-top="34*activeIndex" scroll-with-animation="true" class="lyric">
 				<view class="item" v-for="(item,index) in lyric" :style="index===activeIndex?'color: #ffffff;':''"
@@ -71,12 +71,11 @@
 			this.getMusicDetail(id)
 			this.getComment(id)
 			this.BackgroundAudioManager = wx.getBackgroundAudioManager()
-			if (this.$store.state.isPlay && this.$store.state.id === this.id) {
-				this.isPlay = true
+			if (this.$store.state.isPlay && this.$store.state.id == this.id) {
+				this.changePlayState(true)
 			}
 			this.BackgroundAudioManager.onPlay(() => {
 				this.changePlayState(true)
-				this.$store.state.id = id
 			})
 			this.BackgroundAudioManager.onPause(() => {
 				this.changePlayState(false)
@@ -104,7 +103,7 @@
 				}
 			})
 			this.BackgroundAudioManager.onEnded(() => {
-				this.$store.state.isPlay = false
+				this.$store.commit("HandleIsPlay",false)
 				this.isPlay = false
 				this.currentBar = 0
 				this.activeIndex = 0
@@ -115,7 +114,10 @@
 				let data = await request(`http://localhost:3000/song/detail?ids=${id}`)
 				let lyric = await request(`http://localhost:4000/lyric?id=${id}`)
 				this.lyric=[]
-				this.id = id
+				this.id=id
+				if (this.$store.state.isPlay&&this.$store.state.id == this.id) {
+					this.isPlay=true
+				}
 				this.musicData = data.songs[0]
 				wx.setNavigationBarTitle({
 					title: this.musicData.name
@@ -138,7 +140,7 @@
 				this.musicEnd = moment(this.musicData.dt).format('mm:ss')
 			},
 			pause() {
-				this.$store.state.isPlay = !this.$store.state.isPlay
+				this.$store.commit("changeIsPlay")
 				this.isPlay = !this.isPlay
 				this.getMP3(this.id, this.url)
 			},
@@ -156,9 +158,10 @@
 									confirmText: '我知道了'
 								})
 							}
-							this.$store.state.isPlay=false
+							this.$store.commit("HandleIsPlay",false)
+							this.isPlay=false
 						}
-					
+					this.$store.commit("getId",musicId)
 					this.BackgroundAudioManager.src = this.url
 					this.BackgroundAudioManager.title = this.musicData.name
 				} else {
@@ -168,7 +171,7 @@
 			},
 			changePlayState(isPlay) {
 				this.isPlay = isPlay
-				this.$store.state.isPlay = isPlay
+				this.$store.commit("HandleIsPlay",isPlay)
 			},
 			moveBar(e) {
 				this.firstLeft = e.mp.touches[0].clientX - 97.5
@@ -258,7 +261,7 @@
 		},
 		watch: {
 			isPlay(newValue) {
-				this.$store.state.isPlay = newValue
+				this.$store.commit("HandleIsPlay",newValue)
 			}
 		}
 	}
